@@ -6,5 +6,15 @@ pipeline {
             git branch: 'main', url: 'https://github.com/Aiswaryajstn/git_demo.git'
          }
       }
+      stage("build code") {
+         steps {
+            sh "/usr/local/bin/python3.12 git_commands.py"  
+         }
+      }
+      stage("test code") {
+         steps {
+            sh "/usr/local/bin/python3.12 test.py"  
+         }
+      }
    }
 }
